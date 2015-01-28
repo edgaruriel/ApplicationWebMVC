@@ -5,12 +5,13 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script src="../../../public/js/client/client.js"></script>
 </head>
 <body>
 <div >
     <div >
         <div >
-            <form action="../../controller/ClientController.php" id="form" name="form" method="post">
+            <form action="../../services/ClientService.php" id="form" name="form" method="post">
                 <div >
                     <label >Nombre: </label><input type="text" id="name" name="name"/>
                 </div>
@@ -23,7 +24,8 @@
                 <div >
                     <label >IFE: </label><input type="text" id="ife" name="ife"/>
                 </div>
-                <button type="submit" name="newBtn" id="newBtn">Agregar</button>
+                <input type="submit" name="newBtn" id="newBtn" value="Agregar">
+                <a id="btn_cancelar" value="Cancelar" href="index.php">Cancelar</a>
             </form>
         </div>
     </div>
