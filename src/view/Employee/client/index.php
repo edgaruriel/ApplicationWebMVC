@@ -2,6 +2,8 @@
 include_once("../../services/database_access.php");
 include_once("../../controller/ClientController.php");
 include_once("../../model/Client.php");
+include_once("../../services/SessionService.php");
+validarSesion();
 $clients = getAll();
 ?>
 <!DOCTYPE html>
@@ -15,6 +17,7 @@ $clients = getAll();
     <div >
         <div >
             <a value="Agregar" href="new.php">Agregar cliente</a>
+            <a value="Regresar" href="../index.php">Regresar</a>
             <table style="width:100%" border="1">
                 <thead>
                     <tr>
