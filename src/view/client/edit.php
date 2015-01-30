@@ -1,9 +1,10 @@
 <?php
 include_once("../../controller/ClientController.php");
 include_once("../../services/SessionService.php");
+$controller = new ClientController();
 validarSesion();
 $id = $_GET["idClient"];
-$client = findOne($id);
+$client = $controller->findOne($id);
 ?>
 <!DOCTYPE html>
 <html>

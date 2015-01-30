@@ -1,10 +1,11 @@
 <?php
 include_once("../controller/ClientController.php");
+$controller = new ClientController();
 
 if(isset($_POST["newBtn"])){
-    echo add();
+    echo $controller->add();
 }else if(isset($_POST["editBtn"])){
-    echo edit();
+    echo $controller->edit();
 }else if(isset($_GET["action"]) && $_GET["action"]=="delete"){
-    echo delete($_GET["idClient"]);
+    echo $controller->delete($_GET["idClient"]);
 }

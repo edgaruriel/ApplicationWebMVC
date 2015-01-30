@@ -3,8 +3,9 @@ include_once("../../services/database_access.php");
 include_once("../../controller/ClientController.php");
 include_once("../../model/Client.php");
 include_once("../../services/SessionService.php");
+$controller = new ClientController();
 validarSesion();
-$clients = getAll();
+$clients = $controller->getAll();
 ?>
 <!DOCTYPE html>
 <html>
