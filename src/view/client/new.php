@@ -1,4 +1,6 @@
 <?php
+include_once("../../services/SessionService.php");
+validarSesion();
 ?>
 <!DOCTYPE html>
 <html>
