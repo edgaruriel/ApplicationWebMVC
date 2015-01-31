@@ -1,12 +1,8 @@
 <?php
-
-//print_r(dirname('/algo'));
-//echo 'eedas';
-//exit();
-include_once("../services/database_access.php");
-include_once("../model/TypeUser.php");
-include_once("../model/User.php");
-include_once("../services/SessionService.php");
+include_once(dirname(__FILE__)."/../services/database_access.php");
+include_once(dirname(__FILE__)."/../model/TypeUser.php");
+include_once(dirname(__FILE__)."/../model/User.php");
+include_once(dirname(__FILE__)."/../services/SessionService.php");
 
 
 class LoginController{
@@ -14,7 +10,6 @@ class LoginController{
 	public function logIn(){
 		$userName = $_POST["User"];
     	$password = $_POST["Password"];
-    	
     	
 		$pconexion = abrirConexion();
 	   	seleccionarBaseDatos($pconexion);
@@ -28,27 +23,39 @@ class LoginController{
     	$result = existeRegistro($pconexion,$cquery);
     	
     	if( $result == true){
-		if(($resultArray['username']==$user) && ($resultArray['password']==$password)){
+    		$user = new User();
+    		$user->setId($resultArray["id"]);
+    		$user->setEmail($resultArray["email"]);
+    		$user->setLastName($resultArray["last_name"]);
+    		$user->setName($resultArray["name"]);
+    		$user->setPassword($resultArray["password"]);
+    		$user->setStatus($resultArray["status"]);
+    		
+    		$typeUser = new TypeUser();
+    		$typeUser->setId($resultArray["idTypeUser"]);
+    		$typeUser->setName($resultArray["nameTypeUser"]);
+    		
+    		$user->setTypeUser($typeUser);
+    		$user->setUsername($resultArray["username"]);
+    		
+			initSession($user);
+			
+			if($user->getTypeUser()->getId() == TypeUser::$typeUserArray["ADMINISTRADOR"]){
+			header("Location:../view/Admin/index.html");
+			}else if($user->getTypeUser()->getId() == TypeUser::$typeUserArray["EMPLEADO"]){
+			header("Location:../view/Employee/index.html");
+			}else{
+			header("Location:../index.html");
+			}
 		}
 		else{
-			$cdestino = "http://localhost/ApplicationWebMVC/src/view/login.php";
-			}
-	}
-	else{
-		header("Location:../index.html ");
-		//$cdestino = "http://localhost/ApplicationWebMVC/src/view/login.php";
-	}
-
- 	//header("Location:".$cdestino);
-    	
+			header("Location:../index.html");
+		}
 	}
 	
 	public function logOut(){
-	
-	}
-	
-	private function startSession(){
-	
+		closeSession();
+		header("Location:../index.html");
 	}
 
 }

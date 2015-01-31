@@ -1,6 +1,6 @@
 <?php
-include_once("../../services/SessionService.php");
-validarSesion();
+include_once("../../../services/SessionService.php");
+validateSession();
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@ validarSesion();
 <div >
     <div >
         <div >
-            <form action="../../services/ClientService.php" id="form" name="form" method="post">
+            <form action="../../../services/ClientService.php" id="form" name="form" method="post">
                 <div >
                     <label >Nombre: </label><input type="text" id="name" name="name"/>
                 </div>
