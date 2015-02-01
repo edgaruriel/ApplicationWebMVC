@@ -1,8 +1,9 @@
 <?php
-include_once("../../controller/ClientController.php");
-include_once("../../services/SessionService.php");
+include_once(dirname(__FILE__)."/../../../controller/ClientController.php");
+include_once(dirname(__FILE__)."/../../../services/SessionService.php");
+include_once(dirname(__FILE__)."/../../../services/ClientService.php");
+validateSession();
 $controller = new ClientController();
-validarSesion();
 $id = $_GET["idClient"];
 $client = $controller->findOne($id);
 ?>
@@ -17,7 +18,7 @@ $client = $controller->findOne($id);
 <div >
     <div >
         <div >
-            <form action="../../services/ClientService.php" id="form" name="form" method="post">
+            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" id="form" name="form" method="post">
                 <input type="hidden" id="idClient" name="idClient" value="<?php echo $client->getId();?>">
                 <div >
                     <label >Nombre: </label><input type="text" id="name" name="name" value="<?php echo $client->getName();?>"/>

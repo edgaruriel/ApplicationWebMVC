@@ -1,10 +1,8 @@
 <?php
-include_once("../../services/database_access.php");
-include_once("../../controller/ClientController.php");
-include_once("../../model/Client.php");
-include_once("../../services/SessionService.php");
+include_once(dirname(__FILE__)."/../../../controller/ClientController.php");
+include_once(dirname(__FILE__)."/../../../services/SessionService.php");
 $controller = new ClientController();
-validarSesion();
+validateSession();
 $clients = $controller->getAll();
 ?>
 <!DOCTYPE html>
@@ -18,7 +16,7 @@ $clients = $controller->getAll();
     <div >
         <div >
             <a value="Agregar" href="new.php">Agregar cliente</a>
-            <a value="Regresar" href="../index.php">Regresar</a>
+            <a value="Regresar" href="../index.html">Regresar</a>
             <table style="width:100%" border="1">
                 <thead>
                     <tr>
@@ -40,7 +38,7 @@ $clients = $controller->getAll();
                             <td><?php echo $client->getIfe();?></td>
                             <td>
                                 <a href="edit.php?idClient=<?php echo $client->getId();?>">Editar</a>
-                                <a href="../../services/ClientService.php?action=delete&idClient=<?php echo $client->getId();?>">Eliminar</a>
+                                <a href="../../../services/ClientService.php?action=delete&idClient=<?php echo $client->getId();?>">Eliminar</a>
                             </td>
                         </tr>
                     <?php endforeach;?>

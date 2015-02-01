@@ -1,6 +1,7 @@
 <?php
-include_once("C:/xampp/htdocs/ApplicationWebMVC/src/services/database_access.php");
-include_once("C:/xampp/htdocs/ApplicationWebMVC/src/model/Client.php");
+include_once(dirname(__FILE__)."/../services/database_access.php");
+include_once(dirname(__FILE__)."/../services/SessionService.php");
+include_once(dirname(__FILE__)."/../model/Client.php");
 
 class ClientController
 {
@@ -104,15 +105,14 @@ class ClientController
             $cquery .= " (name, last_name, email, ife, status)";
             $cquery .= " VALUES ('$name', '$last_name', '$email', '$ife', 1)";
             if (insertarDatos($pconexion, $cquery)) {
-                $cmensaje = "Se registró exitosamente el cliente";
+                header('Location: index.php');
             } else {
-                $cmensaje = "No fue posible registrar el cliente en el catálogo";
+                echo "<h1>No fue posible registrar el cliente en el catálogo</h1>";
             }
         } else {
-            $cmensaje = "Ya existe un cliente con el correo: $email";
+            echo "<h1>Ya existe un cliente con el correo: $email</h1>";
         }
         cerrarConexion($pconexion);
-        return $cmensaje;
     }
 
     function edit()
@@ -125,23 +125,17 @@ class ClientController
 
         $pconexion = abrirConexion();
         seleccionarBaseDatos($pconexion);
-        $cquery = "SELECT email FROM client";
-        $cquery .= " WHERE email = '$email'";
 
-        if (!existeRegistro($pconexion, $cquery)) {
             $cquery = "UPDATE client";
             $cquery .= " SET name = '$name', last_name='$last_name', email='$email', ife='$ife'";
             $cquery .= " WHERE client.id = " . $id;
             if (editarDatos($pconexion, $cquery)) {
-                $cmensaje = "Se actualizó exitosamente el cliente";
+                header('Location: index.php');
             } else {
-                $cmensaje = "No fue posible actualizar el cliente en el catálogo";
+                echo "<h1>No fue posible actualizar el cliente en el catálogo</h1>";
             }
-        } else {
-            $cmensaje = "Ya existe un cliente con el correo: $email";
-        }
         cerrarConexion($pconexion);
-        return $cmensaje;
+        //return $cmensaje;
     }
 
     function delete($id)
@@ -154,13 +148,12 @@ class ClientController
         $cquery .= " SET status = 0";
         $cquery .= " WHERE client.id = " . $id;
         if (editarDatos($pconexion, $cquery)) {
-            $cmensaje = "Se eliminó exitosamente el cliente";
+            header('Location: ../view/Employee/client/index.php');
         } else {
-            $cmensaje = "No fue posible eliminar el cliente en el catálogo";
+            echo "<h1>No fue posible eliminar el cliente en el catálogo</h1>";
         }
 
         cerrarConexion($pconexion);
-        return $cmensaje;
     }
 
 }
