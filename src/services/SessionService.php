@@ -1,11 +1,12 @@
 <?php
 include_once(dirname(__FILE__)."/database_access.php");
 
+
 function validateSession(){
     session_start();
 if(!isset($_SESSION["cidusuario"])){
 	//$cdestino = "http://localhost/ApplicationWebMVC/src/view/login.php";
-	header("Location:../index.html");
+	header("Location:".dirname(__FILE__)."/../index.html");
 	//exit();	
 	} 
 }

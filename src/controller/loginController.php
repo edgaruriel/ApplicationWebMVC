@@ -41,9 +41,9 @@ class LoginController{
 			initSession($user);
 			
 			if($user->getTypeUser()->getId() == TypeUser::$typeUserArray["ADMINISTRADOR"]){
-			header("Location:../view/Admin/index.html");
+			header("Location:../view/Admin/index.php");
 			}else if($user->getTypeUser()->getId() == TypeUser::$typeUserArray["EMPLEADO"]){
-			header("Location:../view/Employee/index.html");
+			header("Location:../view/Employee/index.php");
 			}else{
 			header("Location:../index.html");
 			}

@@ -9,7 +9,7 @@ validateSession();
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="../../../public/js/client/client.js"></script>
+    <script src="../../../../public/js/employee/client/new.js"></script>
 </head>
 <body>
 <div >

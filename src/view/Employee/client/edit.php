@@ -12,7 +12,7 @@ $client = $controller->findOne($id);
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="../../../public/js/client/edit.js"></script>
+    <script src="../../../../public/js/employee/client/edit.js"></script>
 </head>
 <body>
 <div >
