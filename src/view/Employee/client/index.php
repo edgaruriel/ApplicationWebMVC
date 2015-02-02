@@ -16,7 +16,7 @@ $clients = $controller->getAll();
     <div >
         <div >
             <a value="Agregar" href="new.php">Agregar cliente</a>
-            <a value="Regresar" href="../index.html">Regresar</a>
+            <a value="Regresar" href="../index.php">Regresar</a>
             <table style="width:100%" border="1">
                 <thead>
                     <tr>

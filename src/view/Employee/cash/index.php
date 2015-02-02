@@ -18,7 +18,7 @@ $total = 0;
 <div >
     <div >
         <div >
-            <a value="Regresar" href="../index.html">Regresar</a>
+            <a value="Regresar" href="../index.php">Regresar</a>
             <h3><?php echo "Fecha de corte: ".$serviceDate->getDateFormat(Date('Y-m-d'));?></h3>
             <table style="width:100%" border="1">
                 <thead>

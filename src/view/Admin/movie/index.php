@@ -18,7 +18,7 @@ $allMovie = $movieController->getAll();
 	<input type="hidden" id="idRefresh" name="idRefresh" value="<?php echo (isset($_GET["refresh"]))? $_GET["refresh"]: "";?>"/>
         <div>
             <a href="new.php">Agregar Pelicula</a>
-            <a href="../index.html">Regresar</a>
+            <a href="../index.php">Regresar</a>
             <table style="" border="1">
                 <thead>
                     <tr>
