@@ -3,7 +3,7 @@ include_once(dirname(__FILE__)."/MovieController.php");
 
 class CashController {
 
-    function getIdsMoviesRented()
+    function getMoviesRented()
     {
         $arrayIdMovies = array();
         //Conexion con el servidor de base de datos

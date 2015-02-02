@@ -5,7 +5,7 @@ include_once(dirname(__FILE__)."/../../../services/SessionService.php");
 $controller = new CashController();
 $serviceDate = new DateService();
 validateSession();
-$arrayMovies = $controller->getIdsMoviesRented();
+$arrayMovies = $controller->getMoviesRented();
 $total = 0;
 ?>
 <!DOCTYPE html>
