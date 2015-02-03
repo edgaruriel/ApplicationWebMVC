@@ -1,7 +1,7 @@
 <?php
 function abrirConexion(){
   //Abre una conexi�n con la base de datos
-  $pconector = mysqli_connect('localhost','root','root') or die(mysqli_connect_error());
+  $pconector = mysqli_connect('localhost','root','') or die(mysqli_connect_error());
   return $pconector;
 }
 //--------------------------------
