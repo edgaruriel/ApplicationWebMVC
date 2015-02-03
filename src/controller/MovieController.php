@@ -43,23 +43,27 @@ class MovieController{
 		  	$info = pathinfo($_FILES['file_img']['name']);
                $temp = $_FILES['file_img']['tmp_name'];
                $dirImg = "img/" . $_FILES['file_img']['name'];
-               $result = move_uploaded_file($temp, dirname(__FILE__)."/../../public/img/".basename($_FILES['file_img']['name']));
-                if($result){
-                	//se guardo la imagen
-                	$pconexion = abrirConexion();
-    				seleccionarBaseDatos($pconexion);
-                	$cquery = "INSERT INTO movie";
-			        $cquery .= " (title, format, total_units, year, price, code, photo, gender_id, status, rented_units)";
-			        $cquery .= " VALUES ('".$movie->getTitle()."', '".$movie->getFormat()."', ".$movie->getTotalUnits().", ".$movie->getYear().", ".$movie->getPrice().", '".$movie->getCode()."', '".$movie->getPhoto()."', ".$movie->getGender()->getId().", ".$movie->getStatus().", ".$movie->getRentedUnits().")";
-			         if (insertarDatos($pconexion, $cquery) ){
-			         	 header('Location: index.php');
-			         }else{
-			         	echo "<h1>Error: No se pudo agregar a la BD</h1>";
-			         }
-                	
-                }else{
-                	echo "<h1>Error: Al mover la imagen de carpeta</h1>";
-                }
+              if(file_exists(dirname(__FILE__)."/../../public/img/".basename($_FILES['file_img']['name']))){
+                  echo "<h1>Error: El archivo ya existe!</h1>";
+              }else {
+                  $result = move_uploaded_file($temp, dirname(__FILE__)."/../../public/img/".basename($_FILES['file_img']['name']));
+                  if($result){
+                      //se guardo la imagen
+                      $pconexion = abrirConexion();
+                      seleccionarBaseDatos($pconexion);
+                      $cquery = "INSERT INTO movie";
+                      $cquery .= " (title, format, total_units, year, price, code, photo, gender_id, status, rented_units)";
+                      $cquery .= " VALUES ('".$movie->getTitle()."', '".$movie->getFormat()."', ".$movie->getTotalUnits().", ".$movie->getYear().", ".$movie->getPrice().", '".$movie->getCode()."', '".$movie->getPhoto()."', ".$movie->getGender()->getId().", ".$movie->getStatus().", ".$movie->getRentedUnits().")";
+                      if (insertarDatos($pconexion, $cquery) ){
+                          header('Location: index.php');
+                      }else{
+                          echo "<h1>Error: No se pudo agregar a la BD</h1>";
+                      }
+
+                  }else{
+                      echo "<h1>Error: Al mover la imagen de carpeta</h1>";
+                  }
+              }
 		  }else{
             	echo "<h1>Error: Las fotos permitidas son .jpg,.jpeg,.gif,.png</h1>";
             }
@@ -215,7 +219,7 @@ class MovieController{
 		  	$info = pathinfo($_FILES['file_img']['name']);
                $temp = $_FILES['file_img']['tmp_name'];
                $dirImg = "img/" . $_FILES['file_img']['name'];
-               $result = move_uploaded_file($temp, "img/");  
+               $result = move_uploaded_file($temp, dirname(__FILE__)."/../../public/img/".basename($_FILES['file_img']['name']));
                 if($result){
                 	//se guardo la imagen
                 	$pconexion = abrirConexion();
