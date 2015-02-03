@@ -1,23 +1,28 @@
 <?php
-include_once("database_access.php");
+include_once(dirname(__FILE__)."/database_access.php");
 
-function validarSesion(){
+
+function validateSession(){
     session_start();
 if(!isset($_SESSION["cidusuario"])){
-	$cdestino = "http://localhost/ApplicationWebMVC/src/view/login.php";
-	header("Location:".$cdestino);
-	exit();	
+	//$cdestino = "http://localhost/ApplicationWebMVC/src/view/login.php";
+	header("Location:".dirname(__FILE__)."/../index.html");
+	//exit();	
 	} 
 }
 
-function iniciarSesion($cidlogin){
+function initSession($cidlogin){
 
 session_start();
 $_SESSION["cidusuario"]= $cidlogin;
 }
 
-function obtenerInfoSesion(){
+function closeSession(){
+	session_start();
+	session_destroy();
+}
 
+function getInfoSession(){
 	$pconexion = abrirConexion();
    	seleccionarBaseDatos($pconexion);
 	$idusuario = $_SESSION["cidusuario"];

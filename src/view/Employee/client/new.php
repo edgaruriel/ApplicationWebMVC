@@ -1,19 +1,21 @@
 <?php
-include_once("../../services/SessionService.php");
-validarSesion();
+include_once(dirname(__FILE__)."/../../../controller/ClientController.php");
+include_once(dirname(__FILE__)."/../../../services/SessionService.php");
+include_once(dirname(__FILE__)."/../../../services/ClientService.php");
+validateSession();
 ?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="../../../public/js/client/client.js"></script>
+    <script src="../../../../public/js/employee/client/new.js"></script>
 </head>
 <body>
 <div >
     <div >
         <div >
-            <form action="../../services/ClientService.php" id="form" name="form" method="post">
+            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" id="form" name="form" method="post">
                 <div >
                     <label >Nombre: </label><input type="text" id="name" name="name"/>
                 </div>

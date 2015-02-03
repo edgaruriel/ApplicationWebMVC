@@ -1,5 +1,5 @@
 <?php
-include_once("SessionService.php");
+include_once(dirname(__FILE__)."/SessionService.php");
 session_start();
 function listarMenu()
 {

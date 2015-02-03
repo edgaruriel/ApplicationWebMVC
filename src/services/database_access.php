@@ -84,6 +84,25 @@ datos.<br>";
  reset($aregistro);
  return $aregistro; 
 }
+
+function findAllRecord($pconector, $cquery){
+	$arrayRecord = Array();
+	$lresult = mysqli_query($pconector, $cquery);
+	if (!$lresult) {
+        $cerror = "No fue posible recuperar la informacion de la base de datos.<br>";
+        $cerror .= "SQL: $cquery <br>";
+        $cerror .= "Descripcion: ".mysqli_connect_error($pconexion);
+        die($cerror);
+    }if (mysqli_num_rows($lresult) > 0){
+            while ($adatos = mysqli_fetch_array($lresult, MYSQLI_BOTH)){
+            	array_push($arrayRecord, $adatos);
+            }
+    }
+    mysqli_free_result($lresult);
+    cerrarConexion($pconector);
+    
+	return $arrayRecord;
+}
 //--------------------------------
 function editarDatos($pconector, $cquery){
 
