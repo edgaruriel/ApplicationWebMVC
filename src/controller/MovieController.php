@@ -43,7 +43,7 @@ class MovieController{
 		  	$info = pathinfo($_FILES['file_img']['name']);
                $temp = $_FILES['file_img']['tmp_name'];
                $dirImg = "img/" . $_FILES['file_img']['name'];
-               $result = move_uploaded_file($temp, "img/");  
+               $result = move_uploaded_file($temp, dirname(__FILE__)."/../../public/img/".basename($_FILES['file_img']['name']));
                 if($result){
                 	//se guardo la imagen
                 	$pconexion = abrirConexion();
