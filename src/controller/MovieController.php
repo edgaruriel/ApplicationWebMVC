@@ -16,7 +16,7 @@ class MovieController{
     	$price = $_POST["price"];
     	$code = $_POST["code"];
     	$Idgender = $_POST["gender"];
-    	$rentedUnits = $_POST["rentedUnits"];		
+    	$rentedUnits = 0;		
 		
     	$filename = $_FILES['file_img']['name'];
     	
@@ -242,5 +242,16 @@ class MovieController{
 		 }
 	}
 	
+	public function addRentedUnit($idMovie, $rentedUnit){
+		$movieAux = $this->findOne($idMovie);
+		$pconexion = abrirConexion();
+    	seleccionarBaseDatos($pconexion);
 
+    	$newRentedUnit = $movieAux->getRentedUnits() + $rentedUnit;
+		$cquery = "UPDATE movie";
+        $cquery .= " SET rented_units =".$newRentedUnit;
+        $cquery .= " WHERE movie.id = ".$idMovie;
+        editarDatos($pconexion, $cquery);
+        cerrarConexion($pconexion);
+	}
 }

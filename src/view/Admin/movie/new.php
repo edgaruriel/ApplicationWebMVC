@@ -63,8 +63,6 @@ $allGender = $movieController->getAllGender();
                     </select>
                     <br>
                     <br>
-                    <label >Unidades rentadas: </label><input type="number" id="rentedUnits" name="rentedUnits" value="<?php echo (isset($_POST["rentedUnits"]))? $_POST["rentedUnits"]: ""?>"/>
-                    <br>
                 <input type="submit" name="newBtn" id="newBtn" value="Agregar">
                 <a id="btn_cancelar" value="Cancelar" href="index.php">Cancelar</a>
             </form>

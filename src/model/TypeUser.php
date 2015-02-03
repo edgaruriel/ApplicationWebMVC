@@ -2,8 +2,8 @@
 class TypeUser{
 	public static $typeUserArray = Array('ADMINISTRADOR'=>1, 'EMPLEADO'=>2);
 
-	private $id;
-	private $name;
+	public $id;
+	public $name;
 
 	public function getId()
     {

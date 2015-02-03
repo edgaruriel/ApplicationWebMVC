@@ -2,17 +2,17 @@
 class Movie{
 	public static $statusArray = Array('activo'=>1,'borrado'=>0);
 	
-	private $id;
-	private $title;
-	private $format;
-	private $totalUnits;
-	private $year;
-	private $price;
-	private $code;
-	private $photo;
-	private $gender;
-	private $status;
-	private $rentedUnits;
+	public $id;
+	public $title;
+	public $format;
+	public $totalUnits;
+	public $year;
+	public $price;
+	public $code;
+	public $photo;
+	public $gender;
+	public $status;
+	public $rentedUnits;
 	/**
 	 * @return the $id
 	 */
