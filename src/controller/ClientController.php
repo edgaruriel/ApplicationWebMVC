@@ -98,7 +98,7 @@ class ClientController
         $pconexion = abrirConexion();
         seleccionarBaseDatos($pconexion);
         $cquery = "SELECT email FROM client";
-        $cquery .= " WHERE email = '$email'";
+        $cquery .= " WHERE email = '$email' AND status = 1";
 
         if (!existeRegistro($pconexion, $cquery)) {
             $cquery = "INSERT INTO client";

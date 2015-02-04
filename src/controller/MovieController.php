@@ -192,7 +192,6 @@ class MovieController{
     	$price = $_POST["price"];
     	$code = $_POST["code"];
     	$Idgender = $_POST["gender"];
-    	$rentedUnits = $_POST["rentedUnits"];		
 		$id = $_POST["idMovie"];	
     	$filename = $_FILES['file_img']['name'];
     	
@@ -209,11 +208,10 @@ class MovieController{
 		$movie->setTotalUnits($totalUnits);
 		$movie->setYear($year);
 		$movie->setStatus(Movie::$statusArray["activo"]);
-		$movie->setRentedUnits($rentedUnits);
 		
 		 $apermitidos = array("image/jpg","image/jpeg","image/gif","image/png");
 		 if($_FILES["file_img"]["error"]>0){
-		 	echo "<h1>Tenemos un problema al subir la foto".$_FILES["file_img"]["error"]."</h1>";	
+		 	echo "<h1>Tenemos un problema al subir la foto ".$_FILES["file_img"]["error"]."</h1>";
 		 }else{
 		  if(in_array($_FILES['file_img']['type'],$apermitidos)){
 		  	$info = pathinfo($_FILES['file_img']['name']);
@@ -225,7 +223,7 @@ class MovieController{
                 	$pconexion = abrirConexion();
     				seleccionarBaseDatos($pconexion);
     				$cquery = "UPDATE movie";
-        $cquery .= " SET title ='".$movie->getTitle()."', format = '".$movie->getFormat()."', total_units=".$movie->getTotalUnits().", year=".$movie->getYear().", price=".$movie->getPrice().", code='".$movie->getCode()."', photo='".$movie->getPhoto()."', gender_id=".$movie->getGender()->getId().", status=".$movie->getStatus().", rented_units=".$movie->getRentedUnits();
+        $cquery .= " SET title ='".$movie->getTitle()."', format = '".$movie->getFormat()."', total_units=".$movie->getTotalUnits().", year=".$movie->getYear().", price=".$movie->getPrice().", code='".$movie->getCode()."', photo='".$movie->getPhoto()."', gender_id=".$movie->getGender()->getId().", status=".$movie->getStatus();
         $cquery .= " WHERE movie.id = ".$movie->getId();
 			         if (editarDatos($pconexion, $cquery) ){
 			         	 header('Location: index.php');

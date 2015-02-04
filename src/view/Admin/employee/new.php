@@ -16,8 +16,8 @@ $types = $controller->getTypes();
 </head>
 <body>
 <div class="nav">
-	<a href="../employee/index.php" class="nav-button">Catalogo de empleados</a>
-	<a href="../movie/index.php" class="nav-button">Catalogo de productos</a>
+	<a href="../employee/index.php" class="nav-button">Catalogo de usuarios</a>
+	<a href="../movie/index.php" class="nav-button">Catalogo de peliculas</a>
 	<a href="../cash/index.php" class="nav-button">Corte de caja del d&iacute;a</a>
 	<a href="../../../services/LoginService.php?logOut" class="exit-button right"><span class="icon fa-off"></a>
 </div>
