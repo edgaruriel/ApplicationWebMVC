@@ -29,7 +29,7 @@ var numberMovie =	document.getElementById("numberMovie").value;
 			console.log("ERROR");
 		}
 	}else{
-		alert("Seleccione una pelicula y un n�mero de peliculas valido");
+		alert("Seleccione una pelicula y un numero de peliculas valido");
 	}
 }
 
@@ -133,10 +133,10 @@ function rentedMovies(){
 			if(ADD_MOVIES.length > 0){
 				sendAjaxToAddRented();
 			}else{
-				alert("Agregue minimo una pelicula");
+				alert("Agregue al menos una pelicula");
 			}
 		}else{
-			alert("Seleccione una fecha para la devoluci�n");
+			alert("Seleccione una fecha para la devolucion");
 		}
 	}else{
 		alert("Seleccione un cliente");
