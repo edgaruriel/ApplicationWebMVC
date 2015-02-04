@@ -2,7 +2,6 @@ window.onload = function() {
     document.getElementById("editBtn").onclick = function(){return validation()};
     document.getElementById("totalUnits").onkeypress= function(){return justNumbers(event)};
     document.getElementById("price").onkeypress= function(){return justNumbers(event)};
-    document.getElementById("rentedUnits").onkeypress= function(){return justNumbers(event)};
     //document.getElementById("file_img").files = "algo.jpg";
 }
 
@@ -14,10 +13,9 @@ function validation(){
 	var price = document.getElementById("price").value;
 	var code = document.getElementById("code").value;
 	var gender = document.getElementById("gender").value;
-	var rentedUnits = document.getElementById("rentedUnits").value;
 	var photo = document.getElementById("file_img").value;
 	
-	if(title == "" || format=="" || totalUnits=="" || year=="" || price=="" || code=="" || gender=="" || rentedUnits=="" || photo==""){
+	if(title == "" || format=="" || totalUnits=="" || year=="" || price=="" || code=="" || gender=="" || photo==""){
 		alert("Todos los campos son obligatorios");
 		return false;
 	}else{

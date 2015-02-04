@@ -100,7 +100,7 @@ class EmployeeController {
 		$pconexion = abrirConexion ();
 		seleccionarBaseDatos ( $pconexion );
 		$cquery = "SELECT email FROM user";
-		$cquery .= " WHERE email = '$email'";
+		$cquery .= " WHERE email = '$email' AND status = 1";
 		
 		if (! existeRegistro ( $pconexion, $cquery )) {
 			$cquery = "INSERT INTO user";

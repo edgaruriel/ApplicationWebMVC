@@ -17,8 +17,8 @@ $allGender = $movieController->getAllGender();
 </head>
 <body>
 <div class="nav">
-	<a href="../employee/index.php" class="nav-button">Catalogo de empleados</a>
-	<a href="../movie/index.php" class="nav-button">Catalogo de productos</a>
+	<a href="../employee/index.php" class="nav-button">Catalogo de usuarios</a>
+	<a href="../movie/index.php" class="nav-button">Catalogo de peliculas</a>
 	<a href="../cash/index.php" class="nav-button">Corte de caja del d&iacute;a</a>
 	<a href="../../../services/LoginService.php?logOut" class="exit-button right"><span class="icon fa-off"></a>
 </div>
@@ -31,9 +31,9 @@ $allGender = $movieController->getAllGender();
                     
                     <label ><span>Formato: </span></label><input type="text" id="format" name="format" value="<?php echo (isset($_POST["format"]))? $_POST["format"]: ""?>"/>
                     
-                    <label ><span>Total de unidades: </span></label><input type="number" id="totalUnits" name="totalUnits" value="<?php echo (isset($_POST["totalUnits"]))? $_POST["totalUnits"]: ""?>"/>
+                    <label ><span>Total de unidades: </span></label><input type="number" id="totalUnits" min="1" name="totalUnits" value="<?php echo (isset($_POST["totalUnits"]))? $_POST["totalUnits"]: ""?>"/>
                     
-                    <label ><span>year: </span></label>
+                    <label ><span>A&ntilde;o: </span></label>
                     <select id="year" name="year">
                     <option value="">Seleccione un a&ntilde;o</option>
                     <?php for($i =1980; $i<2015; $i++):?>
@@ -47,7 +47,7 @@ $allGender = $movieController->getAllGender();
                     </select>
                     <input type="hidden" value="<?php echo (isset($_POST["year"]))? $_POST["year"]:'';?>"/>
 
-                    <label ><span>Precio ($): </span></label><input type="number" id="price" name="price" value="<?php echo (isset($_POST["price"]))? $_POST["price"]: ""?>"/>
+                    <label ><span>Precio ($): </span></label><input type="number" min="1" id="price" name="price" value="<?php echo (isset($_POST["price"]))? $_POST["price"]: ""?>"/>
 
                     <label ><span>C&oacute;digo: </span></label><input type="text" id="code" name="code" value="<?php echo (isset($_POST["code"]))? $_POST["title"]: ""?>"/>
 

@@ -18,6 +18,7 @@ class LoginController{
 	   $cquery .= " INNER JOIN type_user ON user.type_user_id = type_user.id";
 	   $cquery .= " WHERE user.username = '$userName'";
 	   $cquery .= " AND user.password = '$password'";
+        $cquery .= " AND user.status = 1";
    
 	    $resultArray = extraerRegistro($pconexion,$cquery);
     	$result = existeRegistro($pconexion,$cquery);
