@@ -3,8 +3,8 @@ class Gender{
 	
 	public static $genderArray = Array('ACCIÓN'=>1,'COMEDIA'=>2,'TERROR'=>3,'SUSPENSO'=>4,'DRAMA'=>5,'INFANTIL'=>6);
 	
-	private $id;
-	private $name;
+	public $id;
+	public $name;
 	/**
 	 * @return the $id
 	 */

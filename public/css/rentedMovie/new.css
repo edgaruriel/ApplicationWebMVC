@@ -1,0 +1,12 @@
+
+th {
+	 border: blue 5px solid;
+}
+
+table{
+/*background-color: rgb(231, 229, 116);*/
+	border-top-style: dashed;
+  	border-right-style: dashed;
+  	border-bottom-style: dashed;
+  	border-left-style: dashed;
+}

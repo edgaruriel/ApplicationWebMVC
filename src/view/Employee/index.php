@@ -12,6 +12,7 @@ validateSession();
 <h1>Index de empleado</h1>
 <a href="client/index.php">Catalogo de clientes</a>
 <a href="cash/index.php">Corte de caja del d&iacute;a</a>
+<a href="rentedMovie/index.php">Rentar pelicula</a>
 <a href="../../services/LoginService.php?logOut">Log Out</a>
 </body>
 </html>
