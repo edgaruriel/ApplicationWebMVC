@@ -10,13 +10,21 @@ $clients = $controller->getAll();
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="../../../../public/css/main.css" media="screen" />
 </head>
 <body>
-<div >
-    <div >
-        <div >
-            <a value="Agregar" href="new.php">Agregar cliente</a>
-            <a value="Regresar" href="../index.php">Regresar</a>
+<div class="nav">
+	<a href="../client/index.php" class="nav-button">Catalogo de clientes</a>
+	<a href="../cash/index.php" class="nav-button">Corte de caja del d&iacute;a</a>
+	<a href="../rentedMovie/index.php" class="nav-button">Rentar pelicula</a>
+	<a href="../../../services/LoginService.php?logOut" class="exit-button right"><span class="icon fa-off"></a>
+</div>
+<div class="container center" >
+    <div class="header">Clientes</div>
+            <div class="actions">
+	            <a href="new.php" class="button right verde"><span class="icon fa-plus"></span>Agregar cliente</a>
+	            <a href="../index.php" class="button left azul"><span class="icon fa-home"></span>Regresar</a>
+            </div>
             <table style="width:100%" border="1">
                 <thead>
                     <tr>
@@ -37,15 +45,14 @@ $clients = $controller->getAll();
                             <td><?php echo $client->getEmail();?></td>
                             <td><?php echo $client->getIfe();?></td>
                             <td>
-                                <a href="edit.php?idClient=<?php echo $client->getId();?>">Editar</a>
-                                <a href="../../../services/ClientService.php?action=delete&idClient=<?php echo $client->getId();?>">Eliminar</a>
+                                <a href="edit.php?idClient=<?php echo $client->getId();?>"class="s-button verde"><span class="s-icon fa-edit"></span></a>
+                                <a href="../../../services/ClientService.php?action=delete&idClient=<?php echo $client->getId();?>"class="s-button rojo"><span class="s-icon fa-trash"></span></a>
                             </td>
                         </tr>
                     <?php endforeach;?>
                 </tbody>
             </table>
-        </div>
-    </div>
+    
 </div>
 </body>
 </html>

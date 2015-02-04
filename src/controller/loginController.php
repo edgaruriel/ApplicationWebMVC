@@ -9,7 +9,7 @@ class LoginController{
 
 	public function logIn(){
 		$userName = $_POST["User"];
-    	$password = $_POST["Password"];
+    	$password = sha1($_POST["Password"]);
     	
 		$pconexion = abrirConexion();
 	   	seleccionarBaseDatos($pconexion);

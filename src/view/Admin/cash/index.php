@@ -12,15 +12,22 @@ $total = 0;
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Corte</title>
+    <link rel="stylesheet" type="text/css" href="../../../../public/css/main.css" media="screen" />
 </head>
 <body>
-<div >
-    <div >
-        <div >
-            <a value="Regresar" href="../index.php">Regresar</a>
-            <h3><?php echo "Fecha de corte: ".$serviceDate->getDateFormat(Date('Y-m-d'));?></h3>
-            <table style="width:100%" border="1">
+<div class="nav">
+	<a href="../employee/index.php" class="nav-button">Catalogo de empleados</a>
+	<a href="../movie/index.php" class="nav-button">Catalogo de productos</a>
+	<a href="../cash/index.php" class="nav-button">Corte de caja del d&iacute;a</a>
+	<a href="../../../services/LoginService.php?logOut" class="exit-button right"><span class="icon fa-off"></span></a>
+</div>
+<div class="container center">
+	<div class="header"><?php echo "Fecha de corte: ".$serviceDate->getDateFormat(Date('Y-m-d'));?></div>
+        <div class="actions">
+	            <a href="../index.php" class="button left azul"><span class="icon fa-home"></span>Regresar</a>
+        </div>
+            <table>
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -49,9 +56,8 @@ $total = 0;
                 </tbody>
             </table>
 
-            <h3><?php echo "Total: $".number_format($total,'2');?></h3>
-        </div>
-    </div>
+            <h3 class="right"><?php echo "Total: $".number_format($total,'2');?></h3>
+			<br><br><br>
 </div>
 </body>
 </html>

@@ -17,40 +17,42 @@ $allMovies = $movieController->getAll();
     <meta charset="UTF-8">
     <title></title>
     <script src="../../../../public/js/employee/rentedMovie/new.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../../../public/css/rentedMovie/new.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../../../public/css/main.css" media="screen" />
 </head>
 <body>
-<div class="container" style="width: 27%; height: auto;">
-	<div style="text-align: right;">
-		<h3>Seleccione un cliente</h3>
-		<label>Cliente:</label>
+<div class="nav">
+	<a href="../client/index.php" class="nav-button">Catalogo de clientes</a>
+	<a href="../cash/index.php" class="nav-button">Corte de caja del d&iacute;a</a>
+	<a href="../rentedMovie/index.php" class="nav-button">Rentar pelicula</a>
+	<a href="../../../services/LoginService.php?logOut" class="exit-button right"><span class="icon fa-off"></span></a>
+</div>
+<div class="container center">
+	<div class="header">Nueva Renta</div>
+	<div class="form-group">
+		<label><span>Cliente:</span></label>
 		<select id="client" name="client">
-			<option value="">Clientes</option>
+			<option value="">Seleccione un cliente</option>
 			<?php foreach ($allClients as $client):?>
 			<option value="<?php echo $client->getId()?>"><?php echo $client->getName();?></option>
 			<?php endforeach;?>
 		</select>
-		<br>
-		<h3>Fecha de devoluci&oacute;n</h3>
+		
+		<label><span>Fecha de devoluci&oacute;n</span></label>
 		<input type="date" id="devolutionDate" name="devolutionDate"/>
-		<br>
-		<hr>
-		<h3>Seleccione una pelicula y n&uacute;mero de piezas</h3>
-		<label>Peliculas:</label>
+
+		<label><span>Pelicula:</span></label>
 		<select id="movie" name="movie">
-			<option value="">Peliculas</option>
+			<option value="">Seleccione una pelicula</option>
 			<?php foreach ($allMovies as $movie):?>
 			<option value="<?php echo $movie->getId();?>"><?php echo $movie->getTitle().' ('.$movie->getYear().')'.' Disponibles '.($movie->getTotalUnits() - $movie->getRentedUnits());?></option>
 			<?php endforeach;?>
 		</select>
 		<input type="hidden" id="allMovie" name="allMovie" value='<?php echo json_encode($allMovies);?>'/>
-		<br>
-		<br>
-		<label>N&uacute;mero de peliculas</label>
+		<label><span>N&uacute;mero de peliculas:</span></label>
 		<input type="number" id="numberMovie" name="number" />
-		<br>
-		<br>
-		<button onclick="addMovie();">Agregar pelicula</button>
+
+		<button onclick="addMovie();" class="verde"><span class="icon fa-plus"></span>Agregar pelicula</button>
+	</div>
 		<hr>
 		<h3>Lista de peliculas agregadas</h3>
 		<table id="selectedMoviesTable" name="selectedMoviesTable" class="tableMovie">
@@ -67,9 +69,9 @@ $allMovies = $movieController->getAll();
 			</tbody>
 		</table>
 	
-	<button onclick="rentedMovies();">Rentar</button>
-	<a id="btn_cancelar" value="Cancelar" href="index.php">Cancelar</a>
-	</div>
+	<button onclick="rentedMovies();" class="verde right">Rentar</button>
+	<a id="btn_cancelar" value="Cancelar" href="index.php" class="button azul left"><span class="icon fa-times"></span>Cancelar</a>
+	<br><br><br>
 </div>
 </body>
 </html>

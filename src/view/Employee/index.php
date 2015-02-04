@@ -6,13 +6,18 @@ validateSession();
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Insert title here</title>
+    <title>Empleado</title>
+    <link rel="stylesheet" type="text/css" href="../../../public/css/main.css" media="screen" />
 </head>
 <body>
-<h1>Index de empleado</h1>
-<a href="client/index.php">Catalogo de clientes</a>
-<a href="cash/index.php">Corte de caja del d&iacute;a</a>
-<a href="rentedMovie/index.php">Rentar pelicula</a>
-<a href="../../services/LoginService.php?logOut">Log Out</a>
+<div class="nav">
+	<a href="client/index.php" class="nav-button">Catalogo de clientes</a>
+	<a href="cash/index.php" class="nav-button">Corte de caja del d&iacute;a</a>
+	<a href="rentedMovie/index.php" class="nav-button">Rentar pelicula</a>
+	<a href="../../services/LoginService.php?logOut" class="exit-button right"><span class="icon fa-off"></a>
+</div>
+<div class="logo-container center">
+	<img alt="" src="../../../public/assets/logo_videoclub_estrella.jpg">
+</div>
 </body>
 </html>

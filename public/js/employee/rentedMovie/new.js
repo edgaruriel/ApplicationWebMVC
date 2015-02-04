@@ -29,7 +29,7 @@ var numberMovie =	document.getElementById("numberMovie").value;
 			console.log("ERROR");
 		}
 	}else{
-		alert("Seleccione una pelicula y un número de peliculas valido");
+		alert("Seleccione una pelicula y un nï¿½mero de peliculas valido");
 	}
 }
 
@@ -81,7 +81,7 @@ function addRowToTableMovies(index){
 	cell1.innerHTML = selected.title;
 	cell2.innerHTML = selected.year;
 	cell3.innerHTML = selected.numberMovie;
-	cell4.innerHTML = '<button onclick="deleteMovie('+index+');">Eliminar</button>';
+	cell4.innerHTML = '<button onclick="deleteMovie('+index+');" class="sm-button rojo"><span class="s-icon fa-trash"></span></button>';
 }
 
 function refreshAddMovie(){
@@ -102,7 +102,7 @@ function validateMovie(idSelected,amountMovie){
 			if(amountMovie <= existUnits){
 				flag = true;
 			}else{
-				alert("El número de peliculas disponibles para este titulo es: "+existUnits);
+				alert("El nï¿½mero de peliculas disponibles para este titulo es: "+existUnits);
 				flag = false;
 			}
 			break;
@@ -136,7 +136,7 @@ function rentedMovies(){
 				alert("Agregue minimo una pelicula");
 			}
 		}else{
-			alert("Seleccione una fecha para la devolución");
+			alert("Seleccione una fecha para la devoluciï¿½n");
 		}
 	}else{
 		alert("Seleccione un cliente");
