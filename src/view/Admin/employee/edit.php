@@ -27,6 +27,12 @@ $types = $controller->getTypes();
     <div class="header">Editar: <?php echo $employee->getName();?></div>
             <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" id="form" name="form" method="post" class="form-group">
                 <input type="hidden" id="idEmployee" name="idEmployee" value="<?php echo $employee->getId();?>">
+                <?php if(isset($_GET["email"])):?>
+                    <label style="text-align: center; color: red;">Ya existe un usuario con el correo: <?php echo $_GET["email"];?></label>
+                <?php endif;?>
+                <?php if(isset($_GET["username"])):?>
+                    <label style="text-align: center; color: red;">Ya existe un usuario con el nombre de usuario: <?php echo $_GET["username"];?></label>
+                <?php endif;?>
 
                 <label ><span>Nombre de usuario:</span></label><input type="text" id="username" name="username"  value="<?php echo $employee->getUsername();?>"/>
 

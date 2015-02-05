@@ -26,7 +26,9 @@ $client = $controller->findOne($id);
 	<div class="header">Editar: <?php echo $client->getName();?></div>
             <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" id="form" name="form" method="post" class="form-group">
                 <input type="hidden" id="idClient" name="idClient" value="<?php echo $client->getId();?>">
-                
+                    <?php if(isset($_GET["email"])):?>
+                        <label style="text-align: center; color: red;">Ya existe un cliente con el correo: <?php echo $_GET["email"];?></label>
+                    <?php endif;?>
                     <label ><span>Nombre: </span></label><input type="text" id="name" name="name" value="<?php echo $client->getName();?>"/>
 
                     <label ><span>Apellido(s): </span></label><input type="text" id="last_name" name="last_name" value="<?php echo $client->getLastName();?>"/>
