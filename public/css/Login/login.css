@@ -40,6 +40,18 @@ body{
 	margin-bottom: 30px;
 }
 
+.autores{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	width: 400px;
+	padding: 0px;
+	font-size: 10px;
+	font-family: sans-serif;
+	color: #ffffff;
+	text-align: center;
+}
+
 .form-group{
 	margin-top:20px;
 }
