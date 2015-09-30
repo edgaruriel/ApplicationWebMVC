@@ -1,7 +1,7 @@
 <?php
 class User{
 
-	private $id;
+	private $id = null;
 	private $username;
 	private $password;
 	private $typeUser;
