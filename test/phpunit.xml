@@ -1,0 +1,11 @@
+<phpunit backupGlobals="false" backupStaticAttributes="false"
+	syntaxCheck="false" convertErrorsToExceptions="true">
+	<testsuites>
+		<testsuite name="Tests">
+			<directory suffix=".php">unittest</directory>
+		</testsuite>
+	</testsuites>
+	<logging>
+		<log type="junit" target="../../test-reports/selenium.xml" />
+	</logging>
+</phpunit>
